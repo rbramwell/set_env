@@ -18,7 +18,6 @@ Puppet::Type.newtype(:set_env) do
     desc "Value param"
 
     munge do |value|
-      puts value
       value
     end
   end
