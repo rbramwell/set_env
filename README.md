@@ -6,8 +6,6 @@
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with set_env](#setup)
     * [What set_env affects](#what-set_env-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with set_env](#beginning-with-set_env)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -15,46 +13,40 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+When working with the puppetlabs-aws module we found it painful and less secure to have to hard code credentials,
+ or store a file on the target puppet agent host with sensitive data in them.  So instead we wanted pass the sensitive
+ data in an environment variable.  And thus the birth of set_env...
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+set_env is a Puppet Custom Type that will set a variable for the current running puppet run
 
 ## Setup
 
+Installation is simple...
+
+    puppet module install vormetriclabs-set_env
+    
+or if using Librarian or r10k, add it to your Puppetfile
+
+    mod "vormetriclabs-set_env"
+
 ### What set_env affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* The environment variables of the puppet agent during it's run only...
 
-### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
 
-### Beginning with set_env
-
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+Setting a temporary environment variable is pretty easy:
+
+```ruby
+set_env {"variable_name":
+    value => "variable_value"
+}
+```
 
 ## Reference
 
@@ -65,15 +57,17 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Tested on:
+
+- Windows 7, 8, 8.1
+- CentOS/RHEL 5, 6, 7
+- Ubuntu 12.04, 14.04 LTS
+
+Should work with just about any other OS though as its only requirements are puppet and ruby.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+Feel free to submit issues, or pull requests
 
-## Release Notes/Contributors/Etc **Optional**
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+
