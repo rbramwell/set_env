@@ -4,11 +4,12 @@ Puppet::Type.type(:set_env).provide(:ruby) do
     ENV[@resource[:name]]
   end
   def value=(should)
-    # ENV[$resource[:name]] = @resource[:value]
+    ENV[@resource[:name]] = @resource[:value]
   end
 
   def create
     ENV[@resource[:name]] = @resource[:value]
+
   end
 
   def destroy
@@ -16,6 +17,7 @@ Puppet::Type.type(:set_env).provide(:ruby) do
   end
 
   def exists?
+    ENV[@resource[:name]] = @resource[:value]
     ENV.has_key?(@resource[:name])
   end
 
