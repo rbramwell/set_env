@@ -1,12 +1,10 @@
 Puppet::Type.type(:set_env).provide(:ruby) do
-  Puppet.warning("I like to start this provider")
 
   def value
     ENV[@resource[:name]]
   end
   def value=(should)
     # ENV[$resource[:name]] = @resource[:value]
-
   end
 
   def create
