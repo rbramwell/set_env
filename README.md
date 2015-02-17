@@ -48,6 +48,17 @@ set_env {"variable_name":
 }
 ```
 
+For example to set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for use in puppetlabs-aws
+
+```ruby
+set_env {"AWS_ACCESS_KEY_ID":
+    value => "ABCDEFG123456"
+}
+set_env {"AWS_SECRET_ACCESS_KEY":
+    value => "abcdefg123456?!@#$%"
+}
+```
+
 ## Reference
 
 Here, list the classes, types, providers, facts, etc contained in your module.
