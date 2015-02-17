@@ -1,4 +1,4 @@
-# vormetric/set_env
+# set_env - Set Environment Variables during Puppet Runs
 
 #### Table of Contents
 
@@ -13,7 +13,7 @@
 
 ## Overview
 
-When working with the puppetlabs-aws module we found it painful and less secure to have to hard code credentials,
+When working with the [puppetlabs-aws](https://forge.puppetlabs.com/puppetlabs/aws) module we found it painful and less secure to have to hard code credentials,
  or store a file on the target puppet agent host with sensitive data in them.  So instead we wanted pass the sensitive
  data in an environment variable.  And thus the birth of set_env...
 
@@ -34,8 +34,6 @@ or if using Librarian or r10k, add it to your Puppetfile
 ### What set_env affects
 
 * The environment variables of the puppet agent during it's run only...
-
-
 
 
 ## Usage

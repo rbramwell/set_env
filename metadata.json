@@ -1,12 +1,12 @@
 {
-  "name": "vormetric-set_env",
-  "version": "0.1.0",
-  "author": "vormetric",
+  "name": "vormetriclabs-set_env",
+  "version": "0.1.1",
+  "author": "vormetriclabs",
   "summary": "Module for setting environment variables during puppet agent runs",
   "license": "Apache 2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/vormetriclabs/set_env.git",
+  "project_page": "https://github.com/vormetriclabs/set_env",
+  "issues_url": "https://github.com/vormetriclabs/set_env/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ]
